@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools >= 64", "wheel", "setuptools-git-versioning>=2.0,<3"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "npg-integration-hub"
+license = { file = "LICENSE", content-type = "text/plain" }
+readme = { file = "README.md", content-type = "text/markdown" }
+authors = [
+    { name = "Avnish Pratap Singh", email = "as74@sanger.ac.uk" },
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Environment :: Console",
+    "Programming Language :: Python",
+    "Operating System :: Unix",
+    "Natural Language :: English",
+    "License :: OSI Approved :: GNU General Public License v3 or later (GPLv3+)",
+]
+keywords = ["npg"]
+requires-python = ">= 3.12"
+
+dynamic = ["version"]
+
+description = "Final QC outcomes retrieved from the npg_qc database."
+dependencies = [
+    "pyyaml",
+    "sqlalchemy>2.0.0,<2.1.0",
+    "sqlalchemy-utils",
+    "npgqc-python @ git+https://github.com/wtsi-npg/npgqc-python.git@0.1.0",
+]
+
+[project.optional-dependencies]
+test = [
+    "pytest",
+    "ruff",
+    "pytest-it",
+    "pymysql[rsa]",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.ruff.lint]
+select = ["W", "F", "I", "A"]
+
+[tool.setuptools-git-versioning]
+enabled = true

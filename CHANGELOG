@@ -1,0 +1,10 @@
+# Change Log for npg_integration_hub Project
+
+The format is based on [Keep a Changelog](http://keepachangelog.com/)
+and this project adheres to [Semantic Versioning](http://semver.org/).
+
+## [Unreleased]
+
+### Added
+
+* Final QC outcomes retrieval from the npg_qc database, output as JSON.
